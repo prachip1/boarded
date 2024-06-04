@@ -1,0 +1,114 @@
+// UserContext.js
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import {db} from '../firebase';
+import { createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword,onAuthStateChanged,signOut } from 'firebase/auth';
+import { auth } from '../firebase';
+
+import { useNavigate } from 'react-router-dom';
+
+const UserContext = createContext();
+
+export const useUser = () => {
+  return useContext(UserContext);
+};
+
+export const UserProvider = ({ children }) => {
+  //const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null);
+  
+  const navigate = useNavigate();
+
+  useEffect(() => {
+   //const unsubscribe = 
+   onAuthStateChanged(auth,(authUser) => {
+      setUser(authUser);
+      
+   });
+
+  //return () => unsubscribe();
+
+   
+  }, []);
+
+  const login =  (email, password) => {
+ 
+    if(!email|| !password)
+        {
+            //setFireErrors("Please Fill all fields");
+            return;
+        }
+       // setFireErrors("");
+     else{
+     
+     try{
+      signInWithEmailAndPassword(auth,email,password)
+      .then((userCredential) => {
+          //const user = userCredential.user;
+          console.log(userCredential.user);
+     
+      })
+
+     } 
+        catch(error){
+            //const errorCode = error.code;
+            const errorMessage = error.message;
+            //setFireErrors(errorMessage);
+        }
+        //navigate('/floxie');
+
+     }
+        
+   return;
+  
+  };
+
+  const register =  (username,email, password) => {
+   
+    if(!username || !email || !password){
+       // setFireErrors("Fill all fields");
+        return;
+      }
+
+    // setFireErrors("");
+    
+      
+        createUserWithEmailAndPassword(auth,email,password)
+        .then(async (res) =>{
+            const user = res.user;
+            if(user){
+               await updateProfile(user, {
+                displayName: username,
+            });
+    
+            }
+           
+            
+        })
+        .catch((error) =>{
+          //const errorCode = error.code;
+          const errorMessage = error.message;
+          //setFireErrors(errorMessage);
+      })
+    
+    }
+   
+
+    //navigate('/floxie');
+  
+
+  const logout =  () => {
+    try {
+    signOut(auth).then(()=>{
+      console.log("signed out");
+    })
+    } catch (error) {
+      console.error('Error logging out:', error.message);
+    }
+  };
+
+  return (
+    <UserContext.Provider value={{ user, login, register, logout }}>
+      {children}
+    </UserContext.Provider>
+  );
+};

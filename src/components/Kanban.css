@@ -1,0 +1,58 @@
+.kanban-container{
+    overflow-x: hidden;
+}
+
+.kanban-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 6em;
+   
+}
+.kanban-header h2{
+    font-size:2em;
+}
+.kanban-board-display{
+width:100vw;
+height:100vh;
+margin-top:5em;
+overflow-x: scroll;
+}
+.floxie-create-btn{
+    font-size:1em;
+    width:10%;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    color:#334075;
+    margin-top:2em;
+    margin-left: 2em;
+    text-decoration: solid;
+}
+
+.floxie-create-btn:hover{
+  
+    font-weight: 500;
+    border:none;
+    color:#334075;
+    text-decoration: solid;
+}
+.kan-gen-link{
+    display: flex;
+    justify-content: space-between!important;
+    gap:3em;
+    
+}
+.kan-gen-link button{
+    background-color: #334075;
+    color: #DEE21B;
+    cursor: pointer;
+    font-weight: 500;
+    border: none;
+    border-radius: 3px;
+    padding: 10px;
+    margin-top: 2.5em;
+}
+

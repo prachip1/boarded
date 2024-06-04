@@ -1,0 +1,26 @@
+.email-form-main form input{
+height:40px;
+width:100%;
+font-size:14px;
+}
+
+.email-form-main form button{
+       background-color: #334075;
+        color:#DEE21B!important;
+        cursor: pointer;
+        font-weight: 500;
+        margin-top:10px;
+        padding:10px;
+        border-radius: 5px;
+        border: none;
+       
+    
+   
+}
+
+.email-form-main form button:hover{
+     
+    background-color:#5365ad!important;
+    color:#f6f872!important;
+    font-weight: 300;
+}

@@ -1,0 +1,17 @@
+
+
+.teamspace-css{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+     gap:3em;
+   
+   
+
+}
+.teamspace-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
+}

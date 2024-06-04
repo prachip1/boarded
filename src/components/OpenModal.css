@@ -1,0 +1,149 @@
+
+.openmodal-top {
+    color:#a879c9;
+   
+}
+.openmodal-create-head{
+    cursor: pointer;
+}
+
+.openmodal-create-head button{
+    color:#a879c9;
+    align-items: center;
+}
+.open-button{
+    display: flex;
+    gap:12px;
+    background-color: transparent;
+    border:none;
+    font-size: 1em;
+   
+}
+.editablemodal{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top:0;
+    left:0;
+    background-color: rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ 
+}
+.edit-modalmodal{
+   display: flex;
+   flex-direction: column;
+    text-align: center;
+   
+    height: 300px;
+    background-color: #eff0f5;
+    position: relative;
+    border-radius: 10px;
+
+    
+
+}
+.edit-modalmodal h6{
+    text-align: center;
+    font-size: 16px;
+    margin-top:3em;
+}
+.openmodal-main-content{
+    display: flex;
+    margin-top: -4em;
+}
+.createmodal-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    margin: 4em;
+    
+}
+
+.createmodal-header img{
+    width:65px;
+   height: 55px;
+   margin-top:-1em;
+   
+}
+.edit-modal-deletemodal{
+     color:#0F0417;
+     display: flex;
+     justify-content: center;
+    
+     cursor: pointer;
+     position:absolute;
+     top:9px;
+     right:10px;
+     background-color: #eff0f5;
+     border-radius: 50%;
+     padding: 6px;
+}
+.close-icon:hover{
+    color:rgb(255, 142, 113)
+}
+
+.openmodal-form{
+    display: flex;
+    width: 100%;
+  
+ 
+}
+
+.openmodal-form form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 0%;
+    padding: 0px;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    margin-top: 9em;
+
+}
+
+.edit_mainmodal input{
+    border-radius: 3px;
+    outline: none;
+    border: none;
+    padding:10px;
+    font-size:14px;
+    height: 30px;
+}
+.edit_mainmodal input::placeholder,value{
+    color:rgb(127, 127, 127);
+    font-size: 14px;
+}
+
+
+.edit_footermodal button{
+    outline: none;
+   color:#f0e9f5;
+    background-color: #0F0417;
+    transition: 200ms;
+    padding:10px 18px;
+    cursor: pointer;
+    border-radius: 2px;
+    font-size: 14px;
+    border: none;
+    
+    margin-top: 10px;
+}
+
+.edit_footermodal button:hover{
+    background-color:#1b032c;
+   
+    font-weight: 300;
+   
+}
+.edit_footermodal svg{
+    height:16px;
+    cursor: pointer;
+}
+
+
+

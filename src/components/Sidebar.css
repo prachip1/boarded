@@ -1,0 +1,121 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4em;
+  width: 250px; /* Default width */
+  height: 100%;
+  background-color: #0F0417;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: transform 0.3s ease;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar.closed {
+  transform: translateX(-250px);
+}
+
+.sidebar-header {
+  padding: 20px;
+  gap: 2em;
+  text-align: center;
+}
+
+.sidebar-content {
+  padding: 20px;
+
+}
+
+.sidebar-button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: transparent;
+  border: none;
+  color: #a879c9;
+  font-size: 16px;
+}
+
+ .sidebar-logout-button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: transparent;
+  border: none;
+  color: #a879c9;
+  font-size: 16px;
+  margin-top: 100px;
+}
+@media screen and (max-width: 400px){
+  .sidebar-header .sidebar-list{
+    display: none;
+  }
+} 
+
+/* Hide button text on smaller screens */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 60px; /* Thin width for smaller screens */
+  }
+
+  .sidebar-header h2 {
+    display: none;
+  }
+  .sidebar-header .sidebar-list{
+    display: none;
+  }
+  .sidebar-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+
+  .sidebar-header a {
+    color: #fff !important;
+  }
+
+  .sidebar-content button {
+    width: auto;
+    padding: 10px 15px;
+   /* margin: 15px;*/
+   margin-right: 24px;
+    font-size: 0; /* Hide button text */
+  }
+
+  .sidebar-content button svg {
+    
+    font-size: 24px; /* Adjust icon size for smaller screens */
+  }
+
+  .sidebar-logout button {
+    width: auto;
+    padding: 10px 15px;
+   /* margin: 15px;*/
+   margin-left:12px;
+    font-size: 0; /* Hide button text */
+  }
+
+  .sidebar-logout button svg {
+    
+    font-size: 24px; /* Adjust icon size for smaller screens */
+  }
+  .sidebar-create-css .open-button{
+    width: auto;
+    padding: 10px 15px;
+   /* margin: 15px;*/
+   margin-left:12px;
+    font-size: 0; 
+  }
+
+  .sidebar-create-css svg{
+    font-size: 24px; 
+  }
+}

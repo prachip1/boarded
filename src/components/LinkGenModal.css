@@ -1,0 +1,37 @@
+.link-gen-main button{
+    /*border:2px solid #334075;*/
+    border:none;
+    color: #0F0417;
+    height:3.5em;
+    border-radius: 5px;
+    text-align: center;
+    width:8em;
+    font-size: 15px;
+    font-weight: 800;
+    background-color: #f0e9f5;
+    margin-left: 30em;
+}
+.link-gen-main button:hover{
+    background-color:#3a1e4d;
+    color:#f6f872;
+    font-weight: 200;
+}
+.link-generated-div{
+    display: flex;
+   
+}
+.link-generated-div button{
+    margin-left:2px;
+}
+.link-generated-display{
+    margin-top:14px;
+}
+
+.link-generated-display a{
+    font-size: 12px;
+    background-color: #c3a4eb;
+    padding: 10px;
+    border-radius: 8px;
+    color:#0F0417;
+  
+}

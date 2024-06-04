@@ -1,0 +1,96 @@
+.card-details-main{
+    padding: 30px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 600px;
+}
+
+.card-details-box{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card-details-box-title{
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    gap:10px;
+}
+.card-details-body{
+    width:fit-content;
+}
+.card-details-body input{
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 18px;
+    font-size:16px;
+}
+.card-details-box-colors{
+    display: flex;
+    flex-direction: row;
+    gap:8px;
+    align-items: center;
+}
+
+.card-details-box-colors li{
+    list-style: none;
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    transition: 100ms;
+}
+
+.card-details-box-colors .active{
+    border: 3px solid white;
+}
+.card-details-progress-bar{
+    height: 10px;
+    border-radius: 25px;
+    width: 100%;
+    border: 1px solid #ccc;
+}
+
+.card-details-progress{
+    height: 10px;
+    border-radius: 25px;
+    background-color: rgb(241, 67, 241);
+}
+.card-details-progress-active{
+    background-color:blue;
+}
+.card-details-list{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+
+}
+
+.card-details-list-item{
+    display: flex;
+   align-items: center;
+   padding: 10px 0;
+   gap:12px;
+    
+}
+
+.card-details-list-item p{
+    flex: 1;
+    line-height: 22px;
+
+}
+.card-details-list-item input,
+.card-details-list-item svg{
+cursor: pointer;
+}
+
+
+.card-details-box-labels{
+    display: flex;
+    flex-wrap: wrap;
+    gap:10px;
+}

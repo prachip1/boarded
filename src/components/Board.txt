@@ -1,0 +1,420 @@
+import React,{ useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import './Board.css';
+import CreateBoard from './CreateBoard';
+import Editable from './Editable/Editable';
+import NewNav from './NewNav';
+import WorkSpace from './Imp/WorkSpace';
+
+import WorkTitle from './Imp/WorkTitle';
+import {db,userCollectionRef} from '../firebase';
+import {collection, getDocs, addDoc,query,updateDoc,deleteDoc,doc,where, getDoc, serverTimestamp, orderBy,push,set} from 'firebase/firestore';
+import { useUser } from './UserContext';
+
+export default function Board(props){
+  // const [boards,setBoards] = useState(JSON.parse(localStorage.getItem('pressed')) || []);
+    const { user } = useUser();
+    const { workspaceId } = useParams(); 
+    const userCollectionRef1 = collection(db, `workspace/${workspaceId}/boards`);
+    //const userCollectionRef1 = collection(db, "boards");
+    //const [boardsData, setBoardsData] = useState(displayData)
+    //const [boards, setBoards]= useState(userCollectionRef)
+    const [boards,setBoards] = useState([]);
+
+  const [getBoards, setGetBoards] = useState([]);
+
+  const[loadData, setLoadData]= useState(false);
+  const[loading, setLoading] = useState(false);
+
+const[boardId, setBoardId] = useState("")
+//const addBoard = useState({});
+
+//const {addBoard} = useState({});
+  
+    
+     const [target, setTarget] = useState ({
+        cid: "",
+        bid: "",
+     });
+
+     const addCard = (title, bid) => {
+        const card = {
+            id: Date.now() + Math.random(),
+            title,
+            labels:[],
+            tasks:[],
+            date: "",
+            desc: "",
+        };
+
+        const index = boards.findIndex( (item) => item.id === bid)
+
+        if(index < 0)  return;
+
+        const tempBoards = [...boards];
+        tempBoards[index].cards.push(card);
+        setBoards(tempBoards);
+     };
+
+     const removeCard = (cid, bid) =>{
+        const b_index = boards.findIndex( (item) => item.id === bid);
+        if(b_index < 0) return;
+        
+        const c_index = boards[b_index].cards.findIndex( (item) => item.id === cid);
+        if(c_index < 0) return;
+
+
+        const tempBoards = [...boards];
+        tempBoards[b_index].cards.splice(c_index, 1);
+        setBoards(tempBoards);
+     };
+
+
+   const addBoard = async (title) => {
+        
+      setBoards ([...boards, 
+        {
+       
+       id: Date.now() + Math.random(),
+       
+        title,
+        cards:[],
+       // createdBy:user.uid,
+        //workspaceId:workspaceId,
+       
+      },])}
+     // setLoading(true);
+     console.log("from add board", boards)
+    /* what if we put storeData() here only */
+  
+
+  /*  console.log("From add board");
+    try{
+        
+      await addDoc(userCollectionRef1,{
+      workspaceId:workspaceId,
+      createdAt: serverTimestamp(),
+       boards:boards
+        });
+       //const newBoard = {id:boardRef.id, boards: boards}
+  
+
+    
+   }catch(error){}*/
+   //console.log("checking the value of board in addboards", ...boards)
+    // };
+
+     const removeBoard = (bid) => {
+      
+      const tempBoards = boards.filter(item => item.id !== bid)
+        setBoards(tempBoards);
+
+     };
+
+
+    
+
+     const handleDragEnd =(cid,bid)=>{
+        let source_bid, source_cid, target_bid, target_cid;
+
+        source_bid = boards.findIndex((item) => item.id ===bid)
+        if(source_bid<0) return;
+
+        source_cid = boards[source_bid].cards?.findIndex((item) => item.id ===cid)
+        if(source_cid<0)return;
+
+
+        
+        target_bid = boards.findIndex((item) => item.id ===target.bid)
+        if(target_bid<0) return;
+
+        target_cid = boards[target_bid].cards?.findIndex((item) => item.id ===target.cid)
+        if(target_cid<0)return;
+
+        const tempBoards = [...boards]; // copy the boards array
+        const tempCard = tempBoards[source_bid].cards[source_cid];  // copy the card
+
+        tempBoards[source_bid].cards.splice(source_cid, 1); // remove the card from the source board
+        tempBoards[target_bid].cards.splice(target_cid, 0, tempCard); // add the card to the target board
+    
+         setBoards(tempBoards);
+    };
+
+    const handleDragEnter =(cid,bid)=>{
+        setTarget({
+            cid,
+            bid
+        });
+
+     };
+     /*bid is replaced by boardId */
+    
+     const updateCard = (cid, bid, card) => {
+       
+        const b_index = boards.findIndex( (item) => item.id === bid);
+        if(b_index < 0) return;
+        
+        const c_index = boards[b_index].cards.findIndex( (item) => item.id === cid);
+        if(c_index < 0) return;
+
+
+        const tempBoards = [...boards];
+        tempBoards[b_index].cards[c_index] = card;
+        setBoards(tempBoards);
+       console.log("from update cards", ...boards)
+     };
+
+ console.log("the workspace title is",props.creatework?.workspace?.title);
+
+
+
+ const storeData = async(title)=>{
+  addBoard(title)
+  addCard(title,boardId)
+ try{
+        
+     const doc = await addDoc(userCollectionRef1,{
+       boardid:doc.id,
+        title, 
+        createdAt: serverTimestamp(),
+        boards:boards,
+        
+      //id:boardId,
+      //workspaceId:workspaceId,
+      //createdAt: serverTimestamp(),
+      
+        });
+
+       //addBoard  ({
+       
+        //  id: doc.id,
+         // title,
+         // cards:[],
+          // // createdBy:user.uid,
+            //workspaceId:workspaceId,
+           
+        //  });
+     
+  
+
+
+       //const newBoard = {id:boardRef.id, boards: boards}
+      setLoadData(true);
+      //if(loadData == true){
+        //displayData();
+      //}
+
+    
+   }catch(error){}
+
+
+
+  
+  
+       //displayData(user.uid);
+}
+const fetchBoard = async (boardId) => {
+  const docRef = doc(db, `workspace/${workspaceId}/boards/${boardId}`);
+  try {
+    const doc = await getDoc(docRef);
+    if (doc.exists) {
+      const dd= doc.data();
+      console.log("fetc",dd)
+    } else return null;
+  } catch (err) {
+    //setToastr("Error fetching board");
+    throw err;
+  }
+  
+};
+
+const fetchBoards = async () => {
+  try {
+    const q = query(userCollectionRef1, orderBy("createdAt", "desc"));
+    const querySnapshot = await getDocs(q);
+    const boards = querySnapshot.docs.map((doc) => ({
+      ...doc.data(),
+      id: doc.id,
+      createdAt: doc.data().createdAt.toDate().toLocaleString("en-US"),
+    }));
+    
+    setBoards(boards);
+  } catch (err) {
+    //setToastr("Error fetching boards");
+  } 
+};
+
+/*const displayData = async() =>{
+  
+  try{
+           
+      const q= query(userCollectionRef1);
+      const data= await getDocs(q);
+      const boardy = data.docs.map((doc)=>({
+      
+       ...doc.data()
+      }));
+      //setBoards(boardy);
+     setBoards(boardy)
+      console.log("coming from displaydata",boards);
+   
+   
+      
+        //console.log("this is the workspace name",workSpaceName.title);
+
+    
+      
+  
+
+    //setWorkSpaceName(workData);
+    
+}catch(error){
+
+}
+
+
+}
+*/
+
+/*from chatgpt*/
+const displayData = async () => {
+  //const fetchData =async () =>{
+
+ 
+  try {
+    const querySnapshot = await getDocs(
+      query(userCollectionRef1, orderBy("createdAt", "desc"))
+    );
+
+    console.log(querySnapshot)
+querySnapshot.docs.map(doc => ({
+   // const docId =doc.data().id,
+     //let allData =doc.data()
+    }))
+    // console.log("from display data",somedata[0]);
+   /* setBoards( querySnapshot.docs.map(doc => ({
+    
+    boardid:doc.board_id,
+    ...doc.data()
+      //boards: doc.data()
+      //const dp1 =doc.data().board_id;
+       // console.log("from display boards", dp)
+        
+       
+    })));*/
+    
+    // console.log("from display boards id", ...boards)
+   //setBoards(newBoardsData);
+   //console.log("from setboards",newBoardsData)
+   //setBoardId(newBoardsData.id)
+  } catch (error) {
+    console.error("Error retrieving boards:", error);
+    // Handle error (e.g., display an error message to the user)
+  }
+//};
+//fetchData();
+  //const intervalId = setInterval(fetchData, 60000);
+
+  // Clear the interval when the component unmounts to avoid memory leaks
+  //return () => clearInterval(intervalId)
+};
+
+
+
+
+
+
+   useEffect(() => {
+    storeData();
+   //addBoard();
+   displayData();
+fetchBoard();
+fetchBoards();
+   //displayData();
+            //console.log("this is data",userId);
+        
+    //localStorage.setItem('pressed', JSON.stringify(boards));
+   /* const displayData = async(userId)=>{
+      try{
+             
+        if(user){
+          const data= await getDocs(query(userCollectionRef1, where('createdBy', '==' , userId)));
+            console.log("this is data",userId);
+            const boardss = data.docs.map((doc)=>({
+              ...doc.data()
+            }))
+            setBoards(...boards, boardss);
+  
+        }
+             //setWorkSpaceName(workData);
+          
+      }catch(error){
+  
+      }
+  }*/
+   // displayData();
+   
+    //displayData();
+   
+   }, []);
+  
+
+    return(
+        <div className="top_content">
+      
+     
+        <div className="board-work-title">
+       
+        </div>
+   
+    
+        <div className="main-content">
+       
+            <div className="home-content">
+
+          
+            </div>
+          <div className="home-board">
+           {boards.length>0?( 
+                 <div className="board-display"> 
+                {boards?.map((item) => (
+                   <CreateBoard key={item.id} board={item} removeBoard={removeBoard} 
+                       addCard = {addCard}
+                       removeCard = {removeCard}
+                      handleDragEnd ={handleDragEnd}
+                       handleDragEnter ={handleDragEnter}
+                       updateCard = {updateCard}
+                        />
+                    
+                    ))}
+                    </div>
+                    
+
+            ):(<p>
+                {"No boards yet"}
+              </p>)}
+            
+            
+         
+            <div className="home-add-more-board-class"> {/*this is the add more board class*/}
+            
+            
+            <Editable 
+            displayClass="home-more-board-add"
+           text="Add Board"
+           placeholder="Enter board title"
+           onSubmit={(value) => storeData(value)}  
+           />   {/* this is the function called which is adding the board */}
+
+
+
+            </div>
+        
+            </div>
+            
+
+            </div>
+            </div>
+      
+    )
+}

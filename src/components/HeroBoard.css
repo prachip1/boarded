@@ -1,0 +1,56 @@
+
+.heroboard-container{
+    display: flex;
+    justify-content: center;
+    width:auto;
+ 
+}
+
+.heroboard-main-section{
+   
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height:3.5em;
+    color:#0F0417;
+    background-color: transparent;
+ 
+   
+    
+   
+}
+.heroboard-main-section p{
+    font-size: 1.3em;
+    color:#0F0417;
+  
+    font-weight: 800;
+}
+.heroboard-main-section h5{
+    font-size: 1em;
+    color:#0F0417;
+    margin-top: 2em;
+   
+    text-align: center;
+    padding: 8px;
+    border-radius: 3px;
+}
+
+
+
+
+
+
+@media screen and (max-width: 500px){
+    .hero-main-section{
+       /* flex-direction: column;*/
+        justify-content: left;
+        align-items: center;
+        padding:0em;
+    }
+    .hero-main-section p{
+        font-size: 1em;
+        color: #334075;
+        margin-left:0em;
+    }
+}

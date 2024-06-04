@@ -1,0 +1,314 @@
+.workspace-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    width: 100vw;
+    height: 100vh;;
+   
+}
+.floxie-board-main{
+    display: flex;
+    flex-direction: column;
+     width:100vw;
+
+  
+}
+.workspace-user-welcome{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 6em;
+  
+}
+.floxie-create-btn{
+    font-size:1em;
+    width:10%;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    color:#334075;
+    margin-top:2em;
+    margin-left: 2em;
+    text-decoration: solid;
+}
+
+.floxie-create-btn:hover{
+  
+    font-weight: 500;
+    border:none;
+    color:#334075;
+    text-decoration: solid;
+}
+.something{
+   display: flex;
+   margin-left: 1em;
+  
+}
+.floxie-form-css{
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.workspace-create-form{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+.workspace-create-form input{
+    border-radius: 3px;
+    outline: none;
+    border:1px solid rgb(48, 48, 48);
+   
+    font-size:18px;
+    margin-top: -3em;
+}
+.workspace-create-form input::placeholder,value{
+    color:rgb(127, 127, 127);
+    font-size: 12px;
+}
+.workspace-create-form button{
+    border-radius: 3px;
+    outline: none;
+    border:1px solid rgb(48, 48, 48);
+    padding:10px 0 10px 0;
+    font-size:12px;
+    background-color: #334075;
+    color: #DEE21B;
+    width:50%;
+}
+.workspace-create-form button:hover{
+ 
+    background-color:#5365ad!important;
+    color:#f6f872!important;
+    font-weight: 300;}
+.tip-css{
+    font-size:0.7em;
+    margin-left:3em;
+    margin-top: -0.5em;
+}
+.floxie-input-css{
+   background-color: #ededed;
+    font-size:10px;
+    border:none;
+    font-size: 1.2em;
+}
+.create-btns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:1em;
+}
+.create-btn{
+    font-size:1em;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    background-color: #334075;
+    color:#DEE21B;
+    padding: 20px;
+}
+.create-btn:hover{
+    background-color: #f5f76f;
+    font-weight: 700;
+    border:none;
+    color:#334075;
+}
+
+.create-close-btn{
+    font-size:1em;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    color:#334075;;
+    padding: 20px;
+    margin-left: 26em;
+
+}
+
+
+.workspace-from-back-css{
+  display: flex;  
+  flex-direction: column;
+  text-align: left;
+
+}
+.workpace-card-css{
+    display: flex;
+    flex-direction: column;
+    padding: 2em;
+    
+}
+.workpace-card-css p{
+    font-size:10px;
+}
+.workspace-delete-button{
+    color:#334075;
+   margin-left: 10em;
+   cursor: pointer;
+  
+}
+.workspace-delete-button:hover{
+    color:#ec4760;
+}
+.workspace-page-content{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+ 
+   
+}
+
+.floxie-all-css{
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+     width:40%;
+     
+   
+   
+}
+.floxie-all-css p{
+    font-size: 0.6em;
+    color:#ec4760;
+
+}
+.workspace-cards-display{
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+    flex-wrap: wrap;
+    width:60%;
+    padding:5em 15em;
+ 
+ 
+}
+.floxie-display{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:center;
+    align-items: center;
+    width:100%;
+    height:50%;
+    margin-top:8em;
+    gap:4em;
+  
+   
+}
+
+.floxie-display h2{
+    text-align: center;
+}
+.floxie-display ul {
+    list-style: none;
+}
+.works-cards{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:2em;
+    padding:4em;
+}
+.works-cards a{
+    color: #0F0417;
+}
+.floxie-workspace-created{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:20em;
+    height: 10em;
+    padding:1em;
+    border: 1px solid #0F0417;
+   /* background-image: url('./images/placeholder-pic.jpg');*/
+   background-color: #f0efff;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 5px;
+
+}
+.works-card-footer{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content:space-between;
+    align-items: center;
+    gap:2em;
+    margin-bottom:-5em;
+    
+}
+.works-card-footer p{
+    font-size: 10px;
+    font-weight: 900;
+}
+.works-card-footer svg{
+    cursor: pointer;
+    color:rgb(255, 124, 124);
+}
+.works-card-footer svg:hover{
+    color:rgb(255, 61, 61);
+}
+.workspace_card{
+    
+    color:black;
+}
+
+
+.floxie-workspace-created {
+    color:rgb(10, 10, 10);
+}
+.workspace-extra-css{
+    color:rgb(0, 0, 0);
+}
+.workspace-extra-css {
+    font-size:14px;
+}
+.more-css{
+ color:#ec4760
+}
+
+
+@media screen and (max-width: 500px) {
+  .works-cards{
+    flex-direction: column;
+  }
+   
+
+.workspace-cards-display{
+    width: 0%;
+   
+}
+     .floxie-display{
+        display:flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items: center;
+        gap:4em;
+       margin-left: -1em;
+      
+       
+    }
+   .floxie-form-css{
+    width: 60%;
+   }
+   .create-close-btn{
+    
+    margin-left: 9em;
+   }
+}

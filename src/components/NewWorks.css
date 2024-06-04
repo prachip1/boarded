@@ -1,0 +1,95 @@
+.new-work-main {
+    width: 100vw;
+    display: flex;
+    justify-content: flex-start; /* Align items to the start (left) */
+    align-items: stretch; /* Stretch items to fill the height */
+    min-height: calc(100vh - 100px);
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+
+  
+  .new-work-display {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - 250px); /* Adjust width to fit remaining space after sidebar */
+    padding: 20px; /* Add padding to the content area */
+    margin-top: -10em; 
+}
+  
+  .workss-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the cards horizontally */
+    gap: 1em; /* Add gap between cards */
+    margin-top: 20px; /* Add margin at the top */
+  }
+  
+  .works-workspace-created {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 200px; /* Set width for each card */
+    height: 200px;
+    padding: 10px;
+    margin-bottom: 20px; /* Add margin for spacing between cards */
+    background-color: #f5f5f5;
+    border: 1px solid #0F0417;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(43, 42, 42, 0.527);
+    box-sizing: border-box; /* Include padding and border in the width calculation */
+  }
+
+  .works-workspace-created:hover{
+    background-color: rgb(223, 212, 250);
+  }
+  
+  /* Adjust styles for card content as needed */
+  .works-workspace-created > div {
+    padding: 20px;
+  }
+  
+  .works-workspace-created h3 {
+    margin-bottom: 10px;
+  }
+  
+  .works-workspace-created p {
+    margin-bottom: 10px;
+  }
+  .workss-card-footer{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2em;
+    margin-bottom: -5em;
+    font-size:8px;
+  }
+
+  .workss-card-footer p{
+    font-size: 10px;
+  }
+
+  .workss-card-footer svg{
+    cursor: pointer;
+    color:rgb(255, 124, 124);
+  }
+  .workss-card-footer svg:hover{
+    color:rgb(255, 61, 61);
+  }
+  /* Media query for smaller screens to show one card per row */
+  @media screen and (max-width: 768px) {
+    .workss-cards {
+      flex-direction: column; /* Display cards in a single column on smaller screens */
+      align-items: center; /* Center the cards horizontally */
+    }
+    .works-workspace-created {
+      width: calc(100% - 20px); /* Set width to 100% minus margin for single column */
+    }
+  }
+  

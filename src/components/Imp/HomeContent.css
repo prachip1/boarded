@@ -1,0 +1,44 @@
+.main-content{
+    display: flex;
+    flex-direction: column;
+    margin-top:3em;
+       
+}
+.home-content{
+    margin:2em;
+}
+.home-board{
+    margin:2em;
+    display: flex;
+    flex-direction: row;
+    column-gap: 4rem;
+}
+
+h4{
+    color:black;
+}
+
+.image-class{
+    display: flex;
+    flex-direction: flex-end;
+    justify-content: right;
+    align-items: right;
+
+}
+img{
+    height: 20em;
+    width: 20em;
+}
+
+
+
+
+@media screen and (max-width:500px){
+    .main-content{
+        text-align: center;
+       
+    }
+    .home-content{
+        font-size: 10px;
+    }
+}
