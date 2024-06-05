@@ -6,15 +6,15 @@ import OpenModal from './OpenModal';
 export default function Hero({title, pagetitle, boardstitle,boardsId,showthis,creating}) {
   
   return (
-    <div className='flex flex-col'>
+    <div className='flex mt-4 text-myblue'>
      
       <h5>{title} /</h5>
-     {creating && <p>{boardstitle} 🎈</p> }
+     {creating && 
+     <p>{boardstitle} 🎈</p> }
      
        <h5>{pagetitle} 🧾</h5>
       
-        {showthis && 
-        <LinkGenModal boardstitle={boardstitle} boardsId={boardsId}  /> } 
+      
     
   
        

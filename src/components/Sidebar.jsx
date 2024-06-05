@@ -67,7 +67,7 @@ export default function Sidebar({ createitems }) {
       <div className="lg:hidden fixed bottom-0 left-0 w-full bg-myblue">
         <ul className="menu menu-horizontal bg-myblue rounded-box w-full justify-around">
           <li>
-            <a className="hover:bg-indigo-200 hover:rounded-md">
+            <a>
               <button className="flex flex-col -mt-1 items-center text-base text-linkcolor h-5 w-5">
                 {createitems}
               </button>

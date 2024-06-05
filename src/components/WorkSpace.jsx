@@ -93,15 +93,20 @@ const WorkSpace = () => {
 
          
           
-                <div className="text-myblue w-full flex flex-col justify-center items-center">
-                    <h2 className="text-lg text-center -ml-14">Workspace</h2>
-                    <p className="text-xs text-center text-red-300">*please click on the title to visit the workspace page.</p>
+                <div className="flex flex-col justify-center items-center 
+                text-myblue w-full mt-12 lg:-mt-24 lg:mb-8">
+                    
+                    <h2 className="text-lg">Workspace</h2>
+                    <p className="text-xs text-red-300">*please click on the title to visit the workspace page.</p>
                 </div>
-                <div className="flex flex-wrap justify-center lg:justify-start w-full mb-24 lg:mb-0">
+                <div className="flex flex-wrap justify-center lg:justify-start w-full mb-24 mt-8 lg:mt-4 lg:mb-0">
                     {workSpaceName?.length > 0 ? (
-                        <div className="flex gap-6 flex-wrap mt-14 ml-4 w-full">
+                        <div className="flex justify-center flex-wrap gap-6 mt-8 w-full">
                             {workSpaceName.map((works) => (
-                                <div className="flex flex-col justify-center items-center w-64 h-52 p-12 mb-6 bg-mywhitetext border-2 border-slate-300 rounded-md shadow-lg shadow-indigo-200/50 box-border" key={works.id}>
+                                <div className="flex flex-col justify-center items-center 
+                                w-64 h-52 p-12 mb-6 bg-mywhitetext border-2 
+                                border-slate-200 rounded-md shadow-lg 
+                                shadow-indigo-200/50 box-border" key={works.id}>
                                     <div>
                                         <button className='transition ease-in-out delay-150 p-4 rounded-md text-myblue hover:-translate-y-1 hover:scale-110 hover:bg-purple-200 duration-300'>
                                             <Link className="workspace-extra-css" to={`/${works.title}/${works.id}`} state={{ title: works.title }}>

@@ -130,32 +130,33 @@ export default function NewWorks() {
       {/*workspace new works display */}
     <div className='flex flex-col justify-center items-center lg:mt-12 w-full lg:w-3/4 px-4'>
     <div className="flex flex-col justify-center items-center -ml-4">
-    <div className="text-myblue w-full">
-           <h2 className="text-lg text-center -ml-14">Boards</h2>
-           <p className="text-xs text-center text-red-300">*please click on the title to visit the board.</p>
+    <div className="flex flex-col justify-center items-center text-myblue w-full mt-12 lg:-mt-24 lg:mb-8">
+           <h2 className="text-lg">Boards</h2>
+           <p className="text-xs text-red-300">*please click on the title to visit the board.</p>
            </div>
-           <div className='hero-div'>
+           <div className='flex flex-col justify-center'>
            <Hero pagetitle={"All Boards"} creating={false} title={title}/>
            </div>
           
 
 
-           <div className="flex flex-wrap justify-center lg:justify-start w-full mb-24 lg:mb-0">
+           <div className="flex flex-wrap justify-center lg:justify-start w-full 
+           mb-24 mt-8 lg:mt-4 lg:mb-0">
           {boardName?.length > 0 ? (
              
          
                
-             <div className="flex gap-6 flex-wrap mt-14 ml-4 w-full">
+             <div className="flex justify-center gap-6 flex-wrap mt-8 w-full">
                     {boardName.map((boards)=>(
                            <div className="flex flex-col justify-center items-center w-64 h-52 p-12 
-                           mb-6 bg-mywhitetext border-2 border-slate-300 rounded-md shadow-lg shadow-indigo-500/50 box-border" 
+                           mb-6 bg-mywhitetext border-2 border-slate-200 rounded-md shadow-lg shadow-indigo-500/50 box-border" 
                            key ={boards.id}>
                           
                           <div>
  
                                 {/*//this is link to kanban// */}
                               <button className='transition ease-in-out delay-150 text-myblue p-4 rounded-md hover:-translate-y-1 hover:scale-110 hover:bg-purple-200 duration-300'>
-                              <Link to={`/${title}/${boards.boardTitle}/${boards.id}`} state={{ boardTitle: boards.boardTitle }}><h3>{boards.boardTitle}</h3></Link> 
+                              <Link to={`/${title}/${boards.boardTitle}/${boards.id}`} state={{ boardTitle: boards.boardTitle }}><h3 className='text-xs font-md'>{boards.boardTitle}</h3></Link> 
                               </button>  
                                  {/*  <p className="workspace-extra-css">Created By {user.displayName}</p> */}
                              

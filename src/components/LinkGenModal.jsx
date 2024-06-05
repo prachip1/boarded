@@ -65,7 +65,7 @@ const LinkGenModal = ({workspacetitle, boardstitle, boardsId }) => {
     <div>
       {user && (
     <div>
-      {display && <button onClick={generateLink} className='flex gap-2 
+      {display && <button onClick={generateLink} className='flex gap-2 text-sm
       justify-center items-center bg-myblue p-2 gap-2 
       rounded-md hover:font-bold ml-2 mr-2'><Share2 className='w-4' />Share</button>}
       
@@ -77,7 +77,7 @@ const LinkGenModal = ({workspacetitle, boardstitle, boardsId }) => {
             {generatedLink}
             </Link>
           </div>
-         <button onClick={copyToClipboard} className='bg-myblue p-2 rounded-md hover:font-bold'>{buttonText}</button>
+         <button onClick={copyToClipboard} className='bg-myblue text-sm p-2 rounded-md hover:font-bold'>{buttonText}</button>
          
 
        
