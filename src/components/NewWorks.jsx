@@ -64,11 +64,11 @@ export default function NewWorks() {
   const getWorkspace = async (userId) =>{
 
     try{
-      console.log("Fetching workspaces for user:", userId);
+      //console.log("Fetching workspaces for user:", userId);
           if(user){
             const data= await getDocs(query(boardCollectionRef, where('createdBy', '==' , userId)));
 
-            console.log("data from back", data);
+            //console.log("data from back", data);
            // console.log("this is giving user id",userId);
           //const workspaceData = data.docs.map(doc=>({
            // id:doc.id,
@@ -94,11 +94,11 @@ export default function NewWorks() {
                   createdAt: formattedDate
               };
           });
-          console.log("Workspace data:", workspaceData);
+          //console.log("Workspace data:", workspaceData);
           setBoardName(workspaceData);
           }
           
-       console.log({boardName})
+       //console.log({boardName})
             
         
      
@@ -115,7 +115,7 @@ export default function NewWorks() {
       const itemId = wid;
       setCreatedWorkspaceId({...createdworkspaceId,itemId})
       deleteDoc(doc(db,`workspace/${workspaceId}/boards`,itemId));
-      console.log("delete");
+      //console.log("delete");
     }
 
 
@@ -146,10 +146,12 @@ export default function NewWorks() {
              
          
                
-             <div className="flex justify-center gap-6 flex-wrap mt-8 w-full">
+             <div className="flex flex-wrap justify-center gap-6 mt-8 w-full">
                     {boardName.map((boards)=>(
-                           <div className="flex flex-col justify-center items-center w-64 h-52 p-12 
-                           mb-6 bg-mywhitetext border-2 border-slate-200 rounded-md shadow-lg shadow-indigo-500/50 box-border" 
+                           <div className="flex flex-col justify-center 
+                           items-center w-64 h-52 p-12 
+                           mb-6 bg-mywhitetext border-2 border-slate-200 rounded-md 
+                           shadow-lg shadow-indigo-500/50 box-border" 
                            key ={boards.id}>
                           
                           <div>
@@ -162,8 +164,8 @@ export default function NewWorks() {
                              
                           
                               </div>
-                            <div className="flex w-full h-full justify-between gap-4 -mb-12 mt-20 pb-2 text-xs"> 
-                            <p className='text-xs -ml-8'>{boards.createdAt}</p>  
+                            <div className="flex w-full h-full justify-between gap-4 -mb-12 mt-20 pb-2"> 
+                            <p className='text-xs font-medium -ml-8'>{boards.createdAt}</p>  
                                <Trash2 onClick={()=>deleteItem(boards.id)} type="submit" value="Delete" className='cursor-pointer text-red-500 text-xs -mr-8 h-4' /> 
                             </div>
                             </div>

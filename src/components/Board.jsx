@@ -47,7 +47,7 @@ export default function Board(props) {
                 desc: "",
                 createdAt: serverTimestamp()
             };
-            console.log(cardData)
+           // console.log(cardData)
             await addDoc(collection(db, `workspace/${workspaceId}/boards/${boardsId}/lists/${bid}/cards`), cardData);
            fetchBoards();
         } catch (error) {

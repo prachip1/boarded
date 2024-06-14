@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import "./HeroBoard.css";
 import LinkGenModal from './LinkGenModal';
 
-export default function HeroBoard({pagetitle,workspacetitle, boardstitle,boardsId,showthis,creating, }) {
+export default function HeroBoard({pagetitle,workspacetitle,boardstitle,boardsId,showthis,creating, }) {
+  useEffect(()=>{
+    console.log(pagetitle, workspacetitle, boardstitle, boardsId, showthis, creating)
+  })
   
   return (
     <div className='flex gap-14 items-center mt-4'>

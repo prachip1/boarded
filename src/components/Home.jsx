@@ -47,20 +47,20 @@ export default function Home() {
                 {/* First part of landing hero */}
                 <div className="flex flex-col justify-center items-center w-full px-8 mb-24 mt-28">
                     <h3 className='text-5xl font-bold text-myblue leading-normal text-center'>Just unfussy and your <br /> simple Task Manager.</h3>
-                    <p className='text-lg mt-8 font-normal text-center'>Nothing fancy to impress you, but a flexible way to help plan your tasks.</p>
-                    <button className='btn mt-8' onClick={() => { navigate("/signup") }}>Free Sign Up 🤜🏼</button>
+                    <p className='text-md mt-6 font-normal text-center'>Nothing fancy to impress you, but a <strong className='bg-primary p-2 rounded'>button click</strong> way to help plan your tasks.</p>
+                    <button className='btn mt-12' onClick={() => { navigate("/signup") }}>Free Sign Up 🤜🏼</button>
                 </div>
 
                 {/* Second part of landing hero */}
                 {screenWidth > 500 && (
-                    <div className='flex justify-center items-center rounded-lg shadow-2xl'>
-                        <img src='cardcheck.png' className='w-60 rounded-lg' alt="Card Check" />
+                    <div className='flex justify-center items-center w-100'>
+                        <img src='laptop-boarded-hero.jpg' className='h-80 w-full'  alt="Card Check" />
                     </div>
                 )}
             </div>
 
             {/* Cards start here */}
-            <div className='flex flex-col w-full -mt-48 lg:mt-40 justify-center items-center gap-8 mb-20 lg:mb-40'>
+            <div className='flex flex-col w-full -mt-48 lg:mt-14 justify-center items-center gap-8 mb-20 lg:mb-40'>
                 <h2 className='text-xl font-bold'>What Can You Do Here?</h2>
                 <div className='flex flex-col lg:flex-row gap-6'>
                     <div className="card bg-base-content border-2 border-myblue flex justify-center items-center w-80 h-96 bg-base-100 shadow-xl">

@@ -21,7 +21,7 @@ const LinkGenModal = ({workspacetitle, boardstitle, boardsId }) => {
     const token = generateToken();
 
     // Generate the link with the token appended
-    const linkWithToken = `https://boarded.netlify.app/${workspacetitle}/${boardstitle}/${boardsId}?token=${token}`;
+    const linkWithToken = `http://localhost:5173/${workspacetitle}/${boardstitle}/${boardsId}?token=${token}`;
 
     // Set the generated link to the state
     setGeneratedLink(linkWithToken);

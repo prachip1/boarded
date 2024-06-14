@@ -19,11 +19,11 @@ export default function CreateBoard(props){
   return(
        <>
        <div className="board custom-scroll">  {/* the main board content */}
-        <div className="board_top">    
+        <div className="flex">    
             {/* the title of the board */}
-            <p className="board_top_title">   
+            <p className="flex flex-1 items-center gap-4">   
                <span>{`${props.board?.title}`}</span>
-              <span>{` ${props.board?.cards?.length}`}</span>
+              <span className='text-md text-green-500'>{` ${props.board?.cards?.length}`}</span>
             </p>
 
 
@@ -39,7 +39,7 @@ export default function CreateBoard(props){
                )}
              </div>
           </div>
-          <div className="board_cards">
+          <div className="pb-4 pt-4">
             {
               props.board?.cards?.map((item) => (
                 <Cards key={item.id} card={item} 
